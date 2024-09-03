@@ -4,7 +4,7 @@
 A web application for analyzing packet capture (PCAP) data using a Cumulative Distribution Function (CDF) to detect anomalies. This tool aims to protect network traffic by identifying unusual packet lengths and potential anomalies through statistical analysis.
 
 <p align="center">
-  <video src="assets/pcap_anomaly_detection.mp4" width="700" alt="ss1"></video>
+  <img src="assets/ss_pcap.png" width="700" alt="ss1"></video>
 </p>
 
 ## Features
