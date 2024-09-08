@@ -198,19 +198,37 @@
                   // Hide the loading indicator
                   loadingIndicator.style.display = 'none';
                   
-                  resultsDiv.innerHTML = '<h2>Results:</h2>';
-                  data.results.forEach(result => {
-                      resultsDiv.innerHTML += `
-                          <div>
-                              <p><strong>Packet Number:</strong> ${result.packet_number}</p>
-                              <p><strong>Protocol:</strong> ${result.protocol}</p>
-                              <p><strong>Length:</strong> ${result.length}</p>
-                              <p><strong>Probability:</strong> ${result.probability.toFixed(4)}</p>
-                              <p><strong>Risk:</strong> ${result.risk}</p>
-                          </div>
-                          <hr>
-                      `;
-                  });
+                  resultsDiv.innerHTML = `
+                  <h2>Results:</h2>
+                  <table class="table table-bordered">
+                      <thead>
+                          <tr>
+                              <th>Packet Number</th>
+                              <th>Protocol</th>
+                              <th>Length</th>
+                              <th>Probability</th>
+                              <th>Risk</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+              `;
+              
+              const tableBody = resultsDiv.querySelector('tbody');
+              
+              data.results.forEach(result => {
+                  const row = `
+                      <tr>
+                          <td>${result.packet_number}</td>
+                          <td>${result.protocol}</td>
+                          <td>${result.length}</td>
+                          <td>${result.probability.toFixed(4)}</td>
+                          <td>${result.risk}</td>
+                      </tr>
+                  `;
+                  tableBody.innerHTML += row;
+              });              
               })
               .catch(error => {
                   // Hide the loading indicator
